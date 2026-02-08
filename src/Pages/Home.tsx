@@ -70,6 +70,9 @@ const Home: React.FC = () => {
       <div className='main' id='contact'>
         <Contact/>
       </div>
+      <div className='main' id='workshop'>
+        <Workshop/>
+      </div>
       
 </div>
     
