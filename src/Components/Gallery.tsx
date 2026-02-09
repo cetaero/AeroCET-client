@@ -17,12 +17,17 @@ export default function Gallery() {
 
   // Fetch images from backend
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/gallery`)
+    axios.get('/api/gallery')
       .then((response) => {
-        setImages(response.data.images);
+        const imgs = response.data?.images || response.data || [];
+        setImages(Array.isArray(imgs) ? imgs : []);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((error) => {
+        console.error('Error fetching gallery:', error);
+        setImages([]);
+        setLoading(false);
+      });
 
     // Intersection Observer for fade-in animation
     const observer = new IntersectionObserver(

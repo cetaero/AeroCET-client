@@ -40,5 +40,17 @@
     "tailwindcss": "^3.4.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
-  }
+  },
+  "description": "",
+  "main": "tailwind.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephsaviokav/AeroCET-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephsaviokav/AeroCET-client/issues"
+  },
+  "homepage": "https://github.com/josephsaviokav/AeroCET-client#readme"
 }

@@ -21,10 +21,10 @@ export default function Announcements() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/api/announcements`)
+      .get('/api/announcements')
       .then((response) => {
         console.log(response.data);
-        setAnnouncements(response.data);
+        setAnnouncements(Array.isArray(response.data) ? response.data : []);
 
         setTimeout(() => {
           setIsActive(true);
@@ -32,6 +32,7 @@ export default function Announcements() {
       })
       .catch((error) => {
         console.error('Error fetching announcements:', error);
+        setAnnouncements([]);
       });
 
     const observer = new IntersectionObserver(
@@ -59,7 +60,7 @@ export default function Announcements() {
   const handleClick = (item: Announcement) => {
     if (item.excel) {
       // Prepend the backend base URL to form an absolute URL
-      const fileUrl = `${import.meta.env.VITE_API_BASE_URL}${item.excel}`;
+      const fileUrl = item.excel;
 
       // Fetch the file as a blob to ensure it's downloaded as binary data
       fetch(fileUrl)
