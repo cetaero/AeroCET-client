@@ -2,6 +2,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import img2023 from '../../Data/execom/2023.jpg';
 import img2024 from '../../Data/execom/2024.jpg';
+import img2025 from '../../Data/execom/2025-1.png';
+import img2025_1 from '../../Data/execom/2025-2.png';
 
 function FullPic() {
   const location = useLocation(); // Access the current URL path
@@ -38,6 +40,20 @@ function FullPic() {
   &lt;
       </button>
         <img src={img2023} alt="2023 Team" className="min-w-full" />
+      </div>
+    );
+  }
+  if (location.pathname === '/teams/2025') {
+    return (
+       <div className=" h-screen overflow-auto p-0 lg:px-64">
+         <button
+        onClick={goHome}
+        className=" opacity-30 rounded-full absolute top-5 right-5 bg-red-700 text-white pb-2 lg:px-9 px-3 font-extrabold text-3xl flex items-center hover:bg-orange-600 transition"
+      >
+  &lt;
+      </button>
+        <img src={img2025} alt="2025 Team" className="min-w-full" />
+        <img src={img2025_1} alt="2025 Team" className="min-w-full" />
       </div>
     );
   }

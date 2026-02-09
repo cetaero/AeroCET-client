@@ -19,9 +19,12 @@ export default function Workshop() {
 
   useEffect(() => {
     axios
-      .get(`${import.meta.env.VITE_API_BASE_URL}/api/workshops`)
-      .then((res) => setWorkshops(res.data))
-      .catch(console.error);
+      .get('/api/workshops')
+      .then((res) => setWorkshops(Array.isArray(res.data) ? res.data : []))
+      .catch((error) => {
+        console.error('Error fetching workshops:', error);
+        setWorkshops([]);
+      });
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsActive(entry.isIntersecting),
@@ -74,7 +77,7 @@ export default function Workshop() {
             {/* Image */}
             <div className="lg:w-1/3 w-full overflow-hidden rounded-xl shrink-0">
               <img
-                src={`${import.meta.env.VITE_API_BASE_URL}${workshop.image}`}
+                src={`http://localhost:3001${workshop.image}`}
                 alt={workshop.workshop_name}
                 className="w-full h-56 object-cover"
                 onError={(e) =>

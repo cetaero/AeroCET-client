@@ -15,7 +15,7 @@ export function App(){
       <Router>
       <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/teams/2025" element={<Teams />} />
+      <Route path="/teams/2025" element={<FullPic />} />
       <Route path="/teams/2024" element={<FullPic />} />
       <Route path="/teams/2023" element={<FullPic />} />
       <Route path="/gallery" element={<Gallery />} />

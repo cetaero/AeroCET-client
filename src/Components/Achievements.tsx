@@ -10,10 +10,10 @@ export default function Achievements() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/achievements`)
+    axios.get('/api/achievements')
       .then((response) => {
         console.log("Achievements Data:", response.data); 
-        setAchievements(response.data); 
+        setAchievements(Array.isArray(response.data) ? response.data : []); 
         
         setTimeout(() => {
           setIsActive(true);
@@ -21,6 +21,7 @@ export default function Achievements() {
       })
       .catch((error) => {
         console.error("Error fetching achievements:", error);
+        setAchievements([]);
       });
 
     const observer = new IntersectionObserver(
@@ -80,7 +81,7 @@ export default function Achievements() {
           <div className="w-64 aspect-[3/4] overflow-hidden rounded-xl shadow-lg shrink-0">
 
             <img
-              src={`${import.meta.env.VITE_API_BASE_URL}${image}`}
+              src={image || '/fallback.jpg'}
               alt="Achievement"
               className="w-full h-full"
               onError={(e) => (e.currentTarget.src = '/fallback.jpg')}
