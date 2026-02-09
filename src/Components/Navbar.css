@@ -18,6 +18,10 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 0;
   transform: translateX(-10%);
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
 }
 
 .menu-items.open {
