@@ -36,7 +36,7 @@ function FullPic() {
         onClick={goHome}
         className=" opacity-30 rounded-full absolute top-5 right-5 bg-red-700 text-white pb-2 lg:px-9 px-3 font-extrabold text-3xl flex items-center hover:bg-orange-600 transition"
       >
-  
+    
   &lt;
       </button>
         <img src={img2023} alt="2023 Team" className="min-w-full" />
